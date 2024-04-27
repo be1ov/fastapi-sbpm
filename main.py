@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-app = FastAPI(docs_url="/swagger")
+app = FastAPI(docs_url="/swagger", title="SmallBusinessApplication")
 
 
 @app.get("/")
