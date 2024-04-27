@@ -9,7 +9,7 @@ class Task(BaseModel):
     creator_id: int
     controller_id: int
     executor_id: int
-class TaskStatuses(BaseModel):
+class TaskStatus(BaseModel):
     date: datetime
     task_id: int
     status: int
