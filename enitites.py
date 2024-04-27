@@ -31,7 +31,8 @@ class TasksEntity(Base):
     executor_id = Column(Integer, ForeignKey("users.id"))
 
 
-class TasksStatusesEntity(Base):
+    
+class TaskStatusesEntity(Base):
     __tablename__ = "task_statuses"
     id = Column(Integer, primary_key=True, index=True)
     date = Column(DateTime)
