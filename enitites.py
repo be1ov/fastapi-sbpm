@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
-class User(Base):
+class UserEntity(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String)
@@ -13,11 +13,11 @@ class User(Base):
     password = Column(String)
 
 
-class Project(Base):
+class ProjectEntity(Base):
     __tablename__ = "projects"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
-class TasksModel(Base):
+class TaskEntity(Base):
     __tablename__ = "tasks"
     id = Column(Integer, primary_key=True, index=True)
     project_id = Column(Integer, ForeignKey("projects.id"))
@@ -26,7 +26,7 @@ class TasksModel(Base):
     controller_id = Column(Integer, ForeignKey("users.id"))
     executor_id = Column(Integer, ForeignKey("users.id"))
 
-class TasksStatusesModel(Base):
+class TaskStatusesEntity(Base):
     __tablename__ = "task_statuses"
     id = Column(Integer, primary_key=True, index=True)
     date = Column(DateTime)
