@@ -4,12 +4,16 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
-class GodSlaveModel(Base):
-    __tablename__ = "godSlave"
+class User(Base):
+    __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
-    login = Column(String)
+    first_name = Column(String)
+    last_name = Column(String)
+    email = Column(String)
     password = Column(String)
-    position = Column(String)
-    fullname = Column(String)
-    photo_URL = Column(String)
-    ifTrockist = Column(Boolean)
+
+
+class Project(Base):
+    __tablename__ = "projects"
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String)
