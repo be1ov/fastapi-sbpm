@@ -6,7 +6,7 @@ import db
 Base = declarative_base()
 
 
-class UserModel(Base):
+class UserEntity(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String)
@@ -15,13 +15,13 @@ class UserModel(Base):
     password = Column(String)
 
 
-class ProjectModel(Base):
+class ProjectEntity(Base):
     __tablename__ = "projects"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
 
 
-class TasksModel(Base):
+class TasksEntity(Base):
     __tablename__ = "tasks"
     id = Column(Integer, primary_key=True, index=True)
     project_id = Column(Integer, ForeignKey("projects.id"))
@@ -31,7 +31,7 @@ class TasksModel(Base):
     executor_id = Column(Integer, ForeignKey("users.id"))
 
 
-class TasksStatusesModel(Base):
+class TasksStatusesEntity(Base):
     __tablename__ = "task_statuses"
     id = Column(Integer, primary_key=True, index=True)
     date = Column(DateTime)
