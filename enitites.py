@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
-class User(Base):
+class UserModel(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String)
@@ -13,7 +13,7 @@ class User(Base):
     password = Column(String)
 
 
-class Project(Base):
+class ProjectModel(Base):
     __tablename__ = "projects"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
