@@ -9,9 +9,18 @@ class Task(BaseModel):
     creator_id: int
     controller_id: int
     executor_id: int
+      
+      
 class TaskStatuses(BaseModel):
     date: datetime
     task_id: int
     status: int
     user_id: int
     commentary: str
+
+
+class User (BaseModel):
+    first_name: str
+    last_name: str
+    email: str
+    password: str

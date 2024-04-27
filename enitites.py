@@ -1,6 +1,8 @@
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
 from sqlalchemy.orm import declarative_base
 
+import db
+
 Base = declarative_base()
 
 
@@ -17,7 +19,9 @@ class ProjectEntity(Base):
     __tablename__ = "projects"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
-class TaskEntity(Base):
+
+
+class TasksEntity(Base):
     __tablename__ = "tasks"
     id = Column(Integer, primary_key=True, index=True)
     project_id = Column(Integer, ForeignKey("projects.id"))
@@ -26,6 +30,8 @@ class TaskEntity(Base):
     controller_id = Column(Integer, ForeignKey("users.id"))
     executor_id = Column(Integer, ForeignKey("users.id"))
 
+
+    
 class TaskStatusesEntity(Base):
     __tablename__ = "task_statuses"
     id = Column(Integer, primary_key=True, index=True)
@@ -33,3 +39,6 @@ class TaskStatusesEntity(Base):
     task_id = Column(Integer, ForeignKey("tasks.id"))
     user_id = Column(Integer, ForeignKey("users.id"))
     commentary = Column(String)
+
+
+Base.metadata.create_all(bind=db.engine)
